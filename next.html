@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Next Page</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                padding: 30px;
+                text-align: center;
+                background: #fffaf5;
+            }
+
+            .card {
+                max-width: 400px;
+                margin: 50px auto;
+                background: white;
+                padding: 30px;
+                border-radius: 12px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            }
+
+            label {
+                display: block;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+
+            input[type="date"] {
+                width: 100%;
+                padding: 10px;
+                font-size: 16px;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="card">
+            <h1>Then prepare for an ice cream hang out</h1>
+            <p>Choose a date below:</p>
+            <label for="date">Select a date</label>
+            <input id="date" type="date">
+        </div>
+
+        <script>
+            const dateInput = document.getElementById('date');
+            const whatsappNumber = '254702689807';
+
+            dateInput.addEventListener('change', function () {
+                const selectedDate = dateInput.value;
+                if (!selectedDate) return;
+
+                const message = encodeURIComponent('I selected the date: ' + selectedDate + ' for our ice cream date.');
+                const whatsappUrl = 'https://wa.me/' + whatsappNumber + '?text=' + message;
+
+                window.open(whatsappUrl, '_blank');
+            });
+        </script>
+    </body>
+</html>
